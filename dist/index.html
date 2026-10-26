@@ -1,0 +1,362 @@
+﻿<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff8e7">
+  <meta name="description" content="福岡食住玩！2027 年 5 月 10–14 日 5 日 4 夜卡通小旅行：3D 互動小島、卡通景點與美食、逐日行程、 budget 同出發清單。">
+  <meta property="og:title" content="福岡食住玩！5日4夜卡通小旅行">
+  <meta property="og:description" content="拉麵、屋台、太宰府、由布院溫泉。成個福岡，變咗個可以拖住玩嘅卡通小島。">
+  <meta property="og:type" content="website">
+  <title>福岡食住玩！5日4夜卡通小旅行</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="preload" href="./fonts/fukuoka-rounded.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="./icons/icon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#itinerary">跳去行程</a>
+  <div class="page-grain" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <svg class="loader-bowl" viewBox="0 0 180 150" aria-hidden="true">
+        <path d="M28 66h124c0 36-28 62-62 62S28 102 28 66Z" fill="#ff705b" stroke="#253740" stroke-width="6"/>
+        <ellipse cx="90" cy="66" rx="62" ry="19" fill="#fff6dc" stroke="#253740" stroke-width="6"/>
+        <ellipse cx="90" cy="67" rx="50" ry="12" fill="#ffc35f"/>
+        <path d="M58 68q16 -12 30 0 16 -12 30 0" fill="none" stroke="#ffe071" stroke-width="7" stroke-linecap="round"/>
+        <g fill="none" stroke="#253740" stroke-width="4.5" stroke-linecap="round">
+          <path d="M66 53q-7 -12 0 -24M90 49q-7 -12 0 -24M114 53q-7 -12 0 -24"/>
+        </g>
+        <g class="loader-face">
+          <path d="M68 89q5 -7 10 0M102 89q5 -7 10 0" fill="none" stroke="#253740" stroke-width="4.5" stroke-linecap="round"/>
+          <path d="M84 98q6 6 12 0" fill="none" stroke="#253740" stroke-width="4.5" stroke-linecap="round"/>
+        </g>
+        <circle cx="58" cy="97" r="6" fill="#ff9aae" opacity=".8"/>
+        <circle cx="122" cy="97" r="6" fill="#ff9aae" opacity=".8"/>
+      </svg>
+      <p>湯底滾緊…</p>
+      <span>福岡小島組裝中</span>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="#hero" aria-label="福岡食住玩，返去首頁">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+      <span class="brand-type">FUKUOKA<em>POP!</em></span>
+    </a>
+    <nav class="top-links" aria-label="主要導覽">
+      <a href="#spots">景點</a>
+      <a href="#foods">美食</a>
+      <a href="#itinerary">行程</a>
+    </nav>
+    <div class="top-actions">
+      <button class="icon-btn" id="floatShare" type="button" aria-label="分享呢個行程">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.5M8.2 13.2l7.6 4.5"/></svg>
+      </button>
+      <button class="icon-btn" id="soundBtn" type="button" aria-label="開啟音效"></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero" aria-labelledby="heroTitle">
+      <canvas id="world" aria-label="可拖動的福岡卡通小島：有福岡塔、屋台、拉麵角色、摩天輪和太宰府神社"></canvas>
+      <div class="hero-fallback" id="heroFallback" aria-hidden="true"></div>
+      <div class="hero-sun" aria-hidden="true"></div>
+      <div class="hero-scrim" aria-hidden="true"></div>
+
+      <div class="hero-copy">
+        <div class="hero-eyebrow">
+          <span class="live-dot" aria-hidden="true"></span>
+          <span>2027.05.10 — 14</span>
+          <i>5日4夜</i>
+        </div>
+        <h1 id="heroTitle">
+          <span class="line">福岡，</span>
+          <span class="line line-accent"><em>食住玩</em><b>！</b></span>
+        </h1>
+        <p class="hero-sub">拉麵、屋台、太宰府、由布院溫泉。<br>我將成個福岡，變咗個可以拖住玩嘅卡通小島。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#itinerary">開始 5 日行程 <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"/></svg></a>
+          <a class="btn btn-ghost" href="#spots">睇卡通景點</a>
+        </div>
+        <div class="hero-stats" aria-label="行程重點">
+          <div><strong>5</strong><span>日</span><small>唔趕唔亂</small></div>
+          <div><strong>6</strong><span>個</span><small>卡通景點</small></div>
+          <div><strong>8</strong><span>餐</span><small>由朝食到晚</small></div>
+        </div>
+      </div>
+
+      <div class="scene-ui" aria-hidden="false">
+        <div class="drag-hint"><span aria-hidden="true">↔</span> 拖住個島睇</div>
+        <div class="daynight" role="group" aria-label="切換日間或夜間場景">
+          <button type="button" data-mode="day" class="is-active" aria-pressed="true">DAY</button>
+          <button type="button" data-mode="night" aria-pressed="false">NIGHT</button>
+        </div>
+        <div class="hotspots" id="hotspots"></div>
+      </div>
+
+      <div class="hero-footer">
+        <div class="countdown-pill">
+          <span>距離出發</span>
+          <strong id="countdownDays">—</strong>
+          <span id="countdownLabel">日</span>
+        </div>
+        <a class="scroll-cue" href="#about"><span>向下捲</span><i aria-hidden="true"></i></a>
+      </div>
+
+      <div class="float-sticker sticker-a" aria-hidden="true">5D4N</div>
+      <div class="float-sticker sticker-b" aria-hidden="true">MAY 2027</div>
+      <div class="float-sticker sticker-c" aria-hidden="true">YATAI<br>NIGHT!</div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>博多拉麵</span><i>✦</i><span>明太子</span><i>✦</i><span>中洲屋台</span><i>✦</i><span>太宰府</span><i>✦</i><span>由布院</span><i>✦</i><span>金鱗湖</span><i>✦</i><span>由布院之森</span><i>✦</i><span>梅ヶ枝餅</span><i>✦</i>
+        <span>博多拉麵</span><i>✦</i><span>明太子</span><i>✦</i><span>中洲屋台</span><i>✦</i><span>太宰府</span><i>✦</i><span>由布院</span><i>✦</i><span>金鱗湖</span><i>✦</i><span>由布院之森</span><i>✦</i><span>梅ヶ枝餅</span><i>✦</i>
+      </div>
+    </div>
+
+    <section class="section about" id="about" aria-labelledby="aboutTitle">
+      <div class="about-grid">
+        <div class="about-copy reveal">
+          <p class="section-label"><span>HELLO, FUKUOKA!</span><i>2027 春</i></p>
+          <h2 id="aboutTitle">唔止打卡，<br>係要 <em>食到舔舔脷</em>。</h2>
+          <p class="about-lead">呢個小網站將福岡嘅景點同美食，全部變成有表情嘅卡通角色。你可以拖住個島、切換日夜、點下啲角色，再慢慢睇我幫你排嘅 5 日 4 夜。</p>
+          <div class="fact-grid">
+            <div><strong>5</strong><span>日行程</span></div>
+            <div><strong>6</strong><span>卡通景點</span></div>
+            <div><strong>8</strong><span>餐美食</span></div>
+            <div><strong>1</strong><span>晚由布院溫泉</span></div>
+          </div>
+          <div class="about-note"><span aria-hidden="true">✳</span> 以博多站為基地，中間住一晚由布院，景點同餐廳都盡量順路。</div>
+        </div>
+
+        <div class="postcard-wrap reveal" style="--d:120ms">
+          <div class="postcard tilt">
+            <div class="postcard-head"><span>FUKUOKA</span><span>2027</span></div>
+            <svg class="postcard-map" viewBox="0 0 360 250" role="img" aria-label="福岡行程手繪地圖：博多、太宰府、天神、由布院、中洲">
+              <path d="M-10 74C34 48 75 55 110 82c34 26 64 28 93 13 38-20 69-15 94 2 22 15 45 19 74 8v145H-10Z" fill="#bcebd8" stroke="#253740" stroke-width="4"/>
+              <path d="M-10 124c46-20 73-8 105 11 33 20 63 21 94 3 29-18 60-20 92-4 26 13 47 12 80-2" fill="none" stroke="#7ed9c7" stroke-width="10" opacity=".7"/>
+              <g fill="none" stroke="#fff8e7" stroke-width="5" stroke-linecap="round" opacity=".9">
+                <path d="M24 196q22-9 44 0M285 204q22-9 44 0M138 224q18-7 36 0"/>
+              </g>
+              <path d="M76 178c24-35 60-51 102-60 42-9 58-16 76-44" fill="none" stroke="#253740" stroke-width="4" stroke-dasharray="3 9" stroke-linecap="round"/>
+              <path d="M180 118c26 20 52 32 88 31" fill="none" stroke="#253740" stroke-width="4" stroke-dasharray="3 9" stroke-linecap="round"/>
+              <g>
+                <circle cx="76" cy="178" r="20" fill="#ff705b" stroke="#253740" stroke-width="4"/>
+                <text x="76" y="184" text-anchor="middle" font-size="16" font-weight="900" fill="#fff8e7" font-family="Arial">1</text>
+                <text x="76" y="214" text-anchor="middle" font-size="11" font-weight="800" fill="#253740" font-family="Arial">HAKATA</text>
+              </g>
+              <g>
+                <circle cx="178" cy="118" r="20" fill="#ffd15c" stroke="#253740" stroke-width="4"/>
+                <text x="178" y="124" text-anchor="middle" font-size="16" font-weight="900" fill="#253740" font-family="Arial">2</text>
+                <text x="178" y="103" text-anchor="middle" font-size="11" font-weight="800" fill="#253740" font-family="Arial">DAZAIFU</text>
+              </g>
+              <g>
+                <circle cx="268" cy="149" r="20" fill="#a8c7ff" stroke="#253740" stroke-width="4"/>
+                <text x="268" y="155" text-anchor="middle" font-size="16" font-weight="900" fill="#253740" font-family="Arial">3</text>
+                <text x="268" y="178" text-anchor="middle" font-size="11" font-weight="800" fill="#253740" font-family="Arial">TENJIN</text>
+              </g>
+              <g>
+                <circle cx="250" cy="76" r="20" fill="#7ed9c7" stroke="#253740" stroke-width="4"/>
+                <text x="250" y="82" text-anchor="middle" font-size="16" font-weight="900" fill="#253740" font-family="Arial">4</text>
+                <text x="250" y="56" text-anchor="middle" font-size="11" font-weight="800" fill="#253740" font-family="Arial">YUFUIN</text>
+              </g>
+              <g>
+                <circle cx="128" cy="206" r="20" fill="#ff9db5" stroke="#253740" stroke-width="4"/>
+                <text x="128" y="212" text-anchor="middle" font-size="16" font-weight="900" fill="#253740" font-family="Arial">5</text>
+                <text x="128" y="239" text-anchor="middle" font-size="11" font-weight="800" fill="#253740" font-family="Arial">NAKASU</text>
+              </g>
+              <g transform="translate(318 208)">
+                <circle cx="0" cy="0" r="18" fill="#ffd15c" stroke="#253740" stroke-width="4"/>
+                <g stroke="#253740" stroke-width="3" stroke-linecap="round"><path d="M0-11V11M-11 0H11M-8-8L8 8M8-8L-8 8"/></g>
+                <circle cx="0" cy="0" r="5" fill="#ff705b" stroke="#253740" stroke-width="3"/>
+              </g>
+              <g transform="translate(44 44)">
+                <path d="M0 0q14-14 28 0" fill="none" stroke="#253740" stroke-width="3"/>
+                <path d="M42 10q10-10 20 0" fill="none" stroke="#253740" stroke-width="3"/>
+              </g>
+            </svg>
+            <div class="postcard-foot"><span>5 DAYS / 4 NIGHTS</span><span>BASE: HAKATA</span></div>
+            <div class="postcard-stamp" aria-hidden="true"><span>福岡</span><i>FUKUOKA</i></div>
+          </div>
+          <div class="postcard-tape" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section spots" id="spots" aria-labelledby="spotsTitle">
+      <div class="section-head reveal">
+        <div>
+          <p class="section-label"><b>01</b><span>SPOTS</span><i>景點卡通化</i></p>
+          <h2 id="spotsTitle">六個景點，<br><em>全部有表情</em>。</h2>
+        </div>
+        <p class="section-desc">福岡塔、大濠公園、太宰府、櫛田神社、海之中道、糸島。部分係你 5 日主行程嘅景點，部分係後備／自由加插；點開睇詳情。</p>
+      </div>
+      <div class="spot-scroller" id="spotCards" tabindex="0" aria-label="景點卡片，可左右滑動"></div>
+      <div class="swipe-hint"><span aria-hidden="true">←</span> 左右滑 / 點卡片揭詳情 <span aria-hidden="true">→</span></div>
+    </section>
+
+    <section class="section foods" id="foods" aria-labelledby="foodsTitle">
+      <div class="section-head reveal">
+        <div>
+          <p class="section-label"><b>02</b><span>FOOD</span><i>肚餓警告</i></p>
+          <h2 id="foodsTitle">由拉麵食到<br><em>屋台收檔</em>。</h2>
+        </div>
+        <p class="section-desc">博多豚骨、明太子、牛腸鍋、雞肉南蠻、梅ヶ枝餅、屋台。呢六樣係福岡必食清單，行程會食到大部分，其餘留給你自由加插。</p>
+      </div>
+      <div class="food-grid" id="foodCards"></div>
+      <p class="food-footnote">✳ 唔好空肚睇。真係會叫外賣。</p>
+    </section>
+
+    <section class="section itinerary" id="itinerary" aria-labelledby="itineraryTitle">
+      <div class="section-head reveal">
+        <div>
+          <p class="section-label"><b>03</b><span>ITINERARY</span><i>5 日 4 夜</i></p>
+          <h2 id="itineraryTitle">行程排好，<br><em>你跟住行就得</em>。</h2>
+        </div>
+        <p class="section-desc">以博多站為基地，中間住一晚由布院；每日一個重點，唔會趕到消化唔到。時間係建議，攰就刪走一個點，旅行唔使交功課。</p>
+      </div>
+
+      <div class="season-banner reveal">
+        <div class="season-month"><strong>5</strong><span>月</span></div>
+        <div class="season-copy">
+          <strong>2027 年 5 月第二週，避開黃金週人潮。</strong>
+          <p>5/10–14 已經過咗黃金週；由布院之森全車指定席（你已劃位），由布院旅館晚餐要現金加 ¥2,500＋溫泉稅 ¥250。熱門餐廳同由布院住宿一樣要早訂。</p>
+        </div>
+        <span class="season-tape">YUFUIN!</span>
+      </div>
+      <p class="assumption reveal"><span aria-hidden="true">※</span> 以 5/10 UO600 約 12:00 抵達、5/14 UO695 20:35 起飛為準；酒店 15:00 才入房，先寄行李。</p>
+
+      <div class="day-nav reveal">
+        <button class="day-arrow" id="dayPrev" type="button" aria-label="上一日">←</button>
+        <div class="day-tabs" id="dayTabs" role="tablist" aria-label="選擇行程日"></div>
+        <button class="day-arrow" id="dayNext" type="button" aria-label="下一日">→</button>
+      </div>
+      <div id="dayPanels"></div>
+
+      <div class="itinerary-actions reveal">
+        <div>
+          <strong>想匯入電話日曆？</strong>
+          <p>一撳下載 .ics，5 日行程自動加入日曆（日本時間）。</p>
+        </div>
+        <div class="action-row">
+          <button class="btn btn-primary" id="icsBtn" type="button">下載 5 日行程 .ics</button>
+          <button class="btn btn-ghost" id="shareBtn" type="button">分享畀同行朋友</button>
+        </div>
+      </div>
+
+      <div class="extras reveal" id="extras">
+        <div class="extras-head">
+          <div><p class="section-label"><b>+</b><span>IF YOU HAVE MORE TIME</span></p><h3>如果有多一日，去邊？</h3></div>
+          <p>唔想行購物行程，可以將其中一日換成呢三個近郊提案。</p>
+        </div>
+        <div class="extra-grid" id="extraCards"></div>
+      </div>
+    </section>
+
+    <section class="section budget" id="budget" aria-labelledby="budgetTitle">
+      <div class="section-head reveal">
+        <div>
+          <p class="section-label"><b>04</b><span>BUDGET</span><i>大約洗幾多</i></p>
+          <h2 id="budgetTitle">使錢有預算，<br><em>食得先安心</em>。</h2>
+        </div>
+        <p class="section-desc">以下係每人、未計機票嘅大概數。兌換率會變，當係一個 budget 框架，唔係 accounting。</p>
+      </div>
+      <div class="budget-grid">
+        <div class="budget-summary reveal">
+          <p class="micro">ESTIMATED TOTAL / PERSON</p>
+          <div class="budget-big" id="budgetTotal">—</div>
+          <p class="budget-note" id="budgetNote"></p>
+          <div class="budget-flight">
+            <span aria-hidden="true">✈</span>
+            <p id="flightNote"></p>
+          </div>
+        </div>
+        <div class="budget-card reveal" style="--d:100ms">
+          <div class="budget-rows" id="budgetRows"></div>
+          <p class="mini-note">匯率以 ¥100 ≈ HK$5.2 估算；實際以出發當日為準。</p>
+        </div>
+      </div>
+      <div class="souvenir-strip reveal">
+        <span class="souvenir-title">手信清單</span>
+        <span>明太子</span><span>博多通りもん</span><span>八女茶</span><span>博多織小物</span><span>拉麵禮盒</span>
+        <i>唔好買到行李超重。</i>
+      </div>
+    </section>
+
+    <section class="section checklist" id="checklist" aria-labelledby="checklistTitle">
+      <div class="check-grid">
+        <div class="check-intro reveal">
+          <p class="section-label"><b>05</b><span>BEFORE YOU GO</span><i>出發前</i></p>
+          <h2 id="checklistTitle">機票、酒店、<br>仲有 <em>個胃</em>。</h2>
+          <p>呢張清單會幫你記住進度（儲存在你部電話）。撳一下格仔，就當完成。</p>
+          <div class="check-progress-wrap">
+            <div class="check-progress"><i id="checkProgress"></i></div>
+            <div class="check-progress-label"><span id="checkMessage">由第一項開始，慢慢嚟。</span><strong id="checkCount">0 / 10</strong></div>
+          </div>
+          <button class="text-btn" id="checkReset" type="button">重設清單</button>
+          <div class="check-note"><span>!</span><p>2027 年 5 月嘅詳細時間表、票價同花況，出發前 2–4 星期記得上官網再確認。</p></div>
+        </div>
+        <div class="check-card reveal" style="--d:80ms">
+          <div class="check-list" id="checkList"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-main">
+        <div>
+          <a class="brand brand-footer" href="#hero">
+            <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+            <span class="brand-type">FUKUOKA<em>POP!</em></span>
+          </a>
+          <p>為你 2027 年 5 月嘅福岡旅行而設。<br>景點、美食、行程，一次過搞掂。</p>
+        </div>
+        <div class="footer-sources">
+          <strong>資料來源 / 出發前再確認</strong>
+          <div id="sourceLinks"></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 FUKUOKA POP! · 個人旅行企劃</span>
+        <button class="text-btn" id="toTop" type="button">返去頂 ↑</button>
+      </div>
+    </footer>
+  </main>
+
+  <nav class="bottom-nav" aria-label="快速導覽">
+    <a href="#hero" class="is-active" aria-current="page">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg>
+      <span>首頁</span>
+    </a>
+    <a href="#spots">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/><circle cx="12" cy="9" r="2.6"/></svg>
+      <span>景點</span>
+    </a>
+    <a href="#foods">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11h16c0 4.4-3.6 8-8 8s-8-3.6-8-8Z"/><path d="M8 5c-1 1.4-1 2.6 0 4M12 4c-1 1.5-1 2.8 0 4M16 5c-1 1.4-1 2.6 0 4"/></svg>
+      <span>美食</span>
+    </a>
+    <a href="#itinerary" class="nav-main">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="M8 14h2M14 14h2M8 17h2M14 17h2"/></svg>
+      <span>行程</span>
+    </a>
+    <a href="#checklist">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.6L16.5 9"/></svg>
+      <span>清單</span>
+    </a>
+  </nav>
+
+  <dialog class="detail-dialog" id="detailDialog" aria-label="景點詳情">
+    <div class="detail-inner"></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="./app.js" defer></script>
+</body>
+</html>

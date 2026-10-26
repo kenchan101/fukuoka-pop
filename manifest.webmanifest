@@ -1,0 +1,32 @@
+{
+  "name": "福岡食住玩！5日4夜卡通小旅行",
+  "short_name": "FUKUOKA POP!",
+  "description": "2027 年 5 月福岡行程：3D 卡通小島、景點、美食與逐日行程。",
+  "lang": "zh-Hant-HK",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff8e7",
+  "theme_color": "#ffd15c",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

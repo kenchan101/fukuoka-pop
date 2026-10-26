@@ -1,0 +1,21 @@
+{
+  "name": "fukuoka-pop",
+  "version": "1.0.0",
+  "description": "福岡食住玩！2027 年 5 月 5 日 4 夜卡通互動旅行網頁",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "serve": "node scripts/serve.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs"
+  },
+  "license": "MIT",
+  "packageManager": "pnpm@11.28.5",
+  "dependencies": {
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "puppeteer-core": "^25.16.0"
+  }
+}
