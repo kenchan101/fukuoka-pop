@@ -1,4 +1,4 @@
-﻿const CACHE = "fukuoka-pop-v4";
+const CACHE = "fukuoka-pop-v5";
 const SHELL = [
   "./",
   "./index.html",

@@ -229,7 +229,7 @@ function renderDays() {
             <span>${icon("pin")} ${day.area}</span>
             <span>${icon("sun")} ${day.weather}</span>
             <span>${icon("clock")} ${day.pace}</span>
-            <span>${icon("yen")} 約 ${day.budget} / 人</span>
+            <span>${icon("yen")} ${day.budget} / 人</span>
           </div>
         </div>
         <div class="day-grid">
@@ -398,6 +398,43 @@ function openSpot(id) {
   dialog.querySelector("[data-close]")?.focus();
 }
 
+const foodDayHint = {
+  ramen: "Day 1 / Day 5",
+  yatai: "Day 4 19:00 中洲",
+};
+
+function openFood(id) {
+  const food = foods.find((f) => f.id === id);
+  if (!food) return;
+  const dialog = $("#detailDialog");
+  $(".detail-inner", dialog).innerHTML = `
+    <div class="detail-art" style="--card-bg:${food.bg}">
+      ${getArt(food.id)}
+      <span class="sticker">${food.tag}</span>
+      <button class="detail-close" type="button" aria-label="關閉" data-close>${icon("close")}</button>
+    </div>
+    <div class="detail-body">
+      <p class="micro">FOOD / ${food.jp}</p>
+      <h2>${food.name}</h2>
+      <p class="detail-lead">${pickCopy[food.id] || food.body}</p>
+      ${pickCopy[food.id] ? `<p>${food.body}</p>` : ""}
+      <div class="detail-grid">
+        <div><span>${icon("yen")} 價錢</span><strong>${food.price}</strong></div>
+        <div><span>${icon("map")} 邊度食</span><strong>${food.where}</strong></div>
+        <div><span>${icon("heart")} 必食指數</span><strong>${food.level} / 5</strong></div>
+        <div><span>${icon("calendar")} 行程位置</span><strong>${foodDayHint[food.id] || "自由加插"}</strong></div>
+      </div>
+      <div class="detail-actions">
+        <button class="btn btn-primary" type="button" data-goto-food>去睇美食 ${icon("arrow")}</button>
+        <button class="btn btn-ghost" type="button" data-close>收埋</button>
+      </div>
+    </div>`;
+  if (typeof dialog.showModal === "function") dialog.showModal();
+  else dialog.setAttribute("open", "");
+  document.body.classList.add("dialog-open");
+  dialog.querySelector("[data-close]")?.focus();
+}
+
 function closeDialog() {
   const dialog = $("#detailDialog");
   if (dialog.open) dialog.close();
@@ -495,11 +532,19 @@ let world = null;
 let hotspotsActive = true;
 
 function handlePick(id) {
-  const text = pickCopy[id];
-  if (text) showToast(text);
   tone(id === "ramen" ? 440 : 560, 0.08, "sine");
   $$(".hotspot").forEach((h) => h.classList.toggle("is-picked", h.dataset.id === id));
   setTimeout(() => $$(".hotspot").forEach((h) => h.classList.remove("is-picked")), 700);
+  if (spots.some((s) => s.id === id)) {
+    openSpot(id);
+    return;
+  }
+  if (foods.some((f) => f.id === id)) {
+    openFood(id);
+    return;
+  }
+  const text = pickCopy[id];
+  if (text) showToast(text);
 }
 
 function setupScene() {
@@ -731,6 +776,10 @@ function setupUI() {
   $("#detailDialog").addEventListener("click", (e) => {
     if (e.target.closest("[data-close]")) closeDialog();
     else if (e.target === $("#detailDialog")) closeDialog();
+    if (e.target.closest("[data-goto-food]")) {
+      closeDialog();
+      setTimeout(() => $("#foods").scrollIntoView({ behavior: "smooth" }), 120);
+    }
     const goto = e.target.closest("[data-goto]");
     if (goto) {
       const spot = spots.find((s) => s.id === goto.dataset.goto);
