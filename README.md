@@ -1,4 +1,6 @@
-﻿# 福岡食住玩！FUKUOKA POP!
+# 福岡食住玩！FUKUOKA POP!
+
+**Live 網址：** https://kenchan101.github.io/fukuoka-pop/
 
 2027 年 5 月福岡＋由布院 5 日 4 夜旅行企劃，做成一個手機優先的卡通互動網頁：
 Three.js 3D 小島、日／夜場景、景點與美食卡通插畫、逐日行程、預算、出發清單。
@@ -88,7 +90,10 @@ dist/                   已 build 版本
 
 ## 部署
 
-把 `dist/` 上傳到任何靜態 hosting（Netlify、Vercel、Cloudflare Pages、GitHub Pages）即可。
+這個 repo 已經用 GitHub Actions 自動部署到 GitHub Pages：push 到 `main` 就會把 `dist/` 發佈到
+https://kenchan101.github.io/fukuoka-pop/ 。
+
+如果想用其他靜態 hosting，把 `dist/` 上傳到 Netlify、Vercel、Cloudflare Pages 或任何靜態 server 都可以。
 PWA 的 service worker 需要 HTTPS 或 localhost。
 
 ## 字體
